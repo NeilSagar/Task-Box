@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import AddIcon from '@mui/icons-material/Add';
 
+
 import { addData,getAllInfo } from "../controller/controller";
 import Task from "./Task";
 
@@ -33,7 +34,10 @@ function TaskPage(){
             </div>
         )
     }
-    
+    function handleSubmit(e){
+        e.preventDefault();
+        handleAdd();
+    }
     useEffect(()=>{
         getAllInfo(setTasks);
     },[tasks]);
@@ -48,11 +52,18 @@ return(
                     tasks.map(enListTask)
                 }
             </div>
-        
+            <form onSubmit={handleSubmit}>
             <div className="task-add-sec">
-            <input placeholder="What needs be done?" className="task-add-input" type="text" name="newTask" value={newTask} onChange={handleInputChange}/>
-            <button tabIndex={-1} className="task-add-button" onClick={handleAdd} ><AddIcon/></button>
+            
+            <input placeholder="What needs be done?" 
+            className="task-add-input" type="text" name="newTask" 
+            value={newTask} onChange={handleInputChange}
+            autoComplete="off"
+            />
+            <button tabIndex={-1} className="task-add-button" type="submit" ><AddIcon/></button>
+            
             </div>
+            </form>
             </div>
         </div>
     );
