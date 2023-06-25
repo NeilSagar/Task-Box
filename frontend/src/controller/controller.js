@@ -7,7 +7,7 @@ async function addData(newTask){
 async function getAllInfo(setTasks){
     const response=await getAllTasks();
     if(response.status===201){
-        const res_tasks=response.data;
+        const res_tasks=response.data.message;
         setTasks(res_tasks);
     }
 }
