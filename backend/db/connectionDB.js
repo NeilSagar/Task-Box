@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-const URL="mongodb://localhost:27017/taskBox";
+const URL=process.env.MONGODB_URI+"taskBox";
 
 const connectDB=async ()=>{
     try {

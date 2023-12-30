@@ -2,8 +2,6 @@ import express from "express";
 
 import { getAllTasks,addTask,deleteTask } from "../controller/taskController.js";
 
-
-
 const router=express.Router();
 
 router.get("/getAllTasks",getAllTasks);
